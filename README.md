@@ -2,7 +2,7 @@
 ## Question 1
 ![](Screenshots/photo_2021-02-03_16-52-22.jpg) 
 ![](Screenshots/photo_2021-02-03_16-52-27.jpg) 
-Solution
+Solution : Only done with 10 GET requests by taking advantage of the constraint of maximum of 10 goals scored by any team.
 ```javascript
 let goals=[];
 for(let i=0;i<=10;i++)
@@ -30,7 +30,10 @@ ___
 ![](Screenshots/photo_2021-02-03_16-55-181111111111.jpg)
 ![](Screenshots/photo_2021-02-03_16-55-211111111111.jpg)
 
-Solution
+Solution : Only done with (1+10+10) GET requests by taking advantage of the constraint of maximum of 10 goals scored by any team.  
+            1 for finding the winner 
+            10 for summing the goals for home matches  
+            10 for summing the goals for away mathces  
 ```javascript
 let goals = [];
 for (let i = 0; i <= 10; i++)
