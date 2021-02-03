@@ -12,7 +12,7 @@ async function getDrawnMatches(year) {
     
       await Promise.all(
         goals.map(async (goal) => {
-            const respone = await fetch(https://jsonmock.hackerrank.com/api/football_matches?year=${year}&team1goals=+goal+&team2goals=+goal);
+            const respone = await fetch("https://jsonmock.hackerrank.com/api/football_matches?year=${year}&team1goals=+goal+&team2goals="+goal);
             const data = await respone.json();
             ans+=data.total;
             console.log(ans);
@@ -55,7 +55,6 @@ async function getGoalsScored(competition, year) {
             const respone = await fetch("https://jsonmock.hackerrank.com/api/football_matches?competition=" + competition + "&year=" + year + "&team2=" + "winner+&team2goals="+goal);
             const data = await respone.json();
             ans += data.total * goal;
-            //console.log(ans, data);
         })
     );
     return ans;
