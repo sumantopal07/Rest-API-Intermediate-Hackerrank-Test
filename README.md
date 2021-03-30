@@ -4,6 +4,7 @@
 ![](Screenshots/photo_2021-02-03_16-52-27.jpg) 
 Solution : Only done with 10 GET requests by taking advantage of the constraint of maximum of 10 goals scored by any team.
 ```javascript
+const fetch = require("node-fetch");
 let goals=[];
 for(let i=0;i<=10;i++)
     goals.push(i);
@@ -12,10 +13,10 @@ async function getDrawnMatches(year) {
     
       await Promise.all(
         goals.map(async (goal) => {
-            const respone = await fetch("https://jsonmock.hackerrank.com/api/football_matches?year=${year}&team1goals=+goal+&team2goals="+goal);
-            const data = await respone.json();
+            const respone =  await fetch(`https://jsonmock.hackerrank.com/api/football_matches?year=${year}&team1goals=`+goal+`&team2goals=`+goal);
+            const data =  await respone.json();
             ans+=data.total;
-            console.log(ans);
+            console.log(ans,data.total,goal);
         })
       );
       return ans;
