@@ -53,6 +53,35 @@ async function getDrawnMatches(year) {
 getDrawnMatches
     (2011).then((answer) => console.log(answer));
 ```
+#### Method 3:
+```javascript
+const fetch = require("node-fetch");
+
+async function getDrawnMatches(year) {
+    let goals=[];
+    let ans=0;
+    for(let goal=0;goal<=10;goal++)
+    {
+        const myPromise = fetch(`https://jsonmock.hackerrank.com/api/football_matches?year=${year}&team1goals=`+goal+`&team2goals=`+goal)
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log(data.total,goal);
+                                return data.total
+                            });
+
+        goals.push(myPromise);
+    }
+    return Promise.all(goals);
+}
+getDrawnMatches
+    (2011).then((array)=>{
+        let ans=0;
+        array.forEach( item =>{
+            ans+=item;
+        })
+        console.log(ans);
+    })
+```
 ___
 ## Question 2
 ![](Screenshots/photo_2021-02-03_16-55-141111111111.jpg) 
