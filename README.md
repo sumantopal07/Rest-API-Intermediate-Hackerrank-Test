@@ -25,7 +25,7 @@ async function getDrawnMatches(year) {
 getDrawnMatches
     (2011).then((answer) => console.log(answer));
 ```
-#### Method 2:
+#### Method 2 [BEST]:
 ```javascript
 const fetch = require("node-fetch");
 
